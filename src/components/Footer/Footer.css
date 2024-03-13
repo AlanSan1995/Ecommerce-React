@@ -1,0 +1,49 @@
+footer {
+  padding: 25px 10%;
+  border: 1px solid #d9d9d9;
+}
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+}
+.footerLocation > h2 {
+  font-weight: 700;
+  margin-bottom: 90px;
+  font-size: 24px;
+}
+.footerLocation > p {
+  color: #9f9f9f;
+}
+.footerLinksSection {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.footerLinksSection > h5 {
+  font-size: 16px;
+  color: #d9d9d9;
+}
+.footerLinksSection > a {
+  text-decoration: none;
+  font-weight: 600;
+  color: black;
+  font-size: 16px;
+}
+.footerLinksSection > div > input {
+  border: none;
+  border-bottom: 1px solid black;
+  margin-right: 10px;
+}
+.footerLinksSection > div > button {
+  border: none;
+  border-bottom: 1px solid black;
+  background-color: none;
+  font-weight: 600;
+  background-color: white;
+  cursor: pointer;
+}
+.footerCopyRights {
+  border-top: 1px solid #d9d9d9;
+  margin-top: 70px;
+  padding-top: 30px;
+}

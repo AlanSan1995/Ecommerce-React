@@ -1,0 +1,48 @@
+.presentationSection {
+  height: 90vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.presentationSection > div {
+  background-color: #fff3e3;
+  width: 40%;
+  padding: 30px 40px;
+  border-radius: 5px;
+  margin-right: 50px;
+}
+
+.presentationSection > div > span {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.presentationSection > div > h2 {
+  font-weight: 700;
+  font-size: 52px;
+  color: #b88e2f;
+  line-height: 60px;
+  margin-bottom: 15px;
+}
+.presentationSection > div > p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.presentationSection > div > button {
+  margin-top: 25px;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 25px 75px;
+  background-color: #b88e2f;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+.presentationSection > div > button:hover {
+  background-color: #e0b651;
+  color: #a8a0a0;
+}
