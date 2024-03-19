@@ -5,11 +5,33 @@ import carrusel1 from "../../../../assets/img/carucel-1.png";
 import carrusel2 from "../../../../assets/img/carucel-2.png";
 import carrusel3 from "../../../../assets/img/carucel-3.png";
 import carrusel4 from "../../../../assets/img/carucel-4.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function InspirationSection() {
-  const [carruselPosition, setCarruselPosition] = useState(0);
-
+  const [carruselPosition, setCarruselPosition] = useState(1);
+  const [timeChange, setTimeChange] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      carruselPosition == 4
+        ? setCarruselPosition(1)
+        : setCarruselPosition(carruselPosition + 1);
+      setTimeChange(!timeChange);
+    }, 2000);
+  }, [timeChange]);
+  const translateCarrucel = () => {
+    if (carruselPosition == 1) {
+      return "translateX(0%)";
+    }
+    if (carruselPosition == 2) {
+      return "translateX(-25%)";
+    }
+    if (carruselPosition == 3) {
+      return "translateX(-50%)";
+    }
+    if (carruselPosition == 4) {
+      return "translateX(-75%)";
+    }
+  };
   return (
     <>
       <div className='InspirationSection'>
@@ -27,21 +49,39 @@ function InspirationSection() {
         </div>
         <div className='InspirationSectionCarruselContainer'>
           <div className='carrucelPositionPoint '>
-            <div className='positionPointActive'>
+            <button
+              className={`${carruselPosition == 1 && "positionPointActive"}`}
+              onClick={() => setCarruselPosition(1)}>
               <span></span>
-            </div>
-            <div>
+            </button>
+            <button
+              className={`${carruselPosition == 2 && "positionPointActive"}`}
+              onClick={() => setCarruselPosition(2)}>
               <span></span>
-            </div>
-            <div>
+            </button>
+            <button
+              className={`${carruselPosition == 3 && "positionPointActive"}`}
+              onClick={() => setCarruselPosition(3)}>
               <span></span>
-            </div>
+            </button>
+            <button
+              className={`${carruselPosition == 4 && "positionPointActive"}`}
+              onClick={() => setCarruselPosition(4)}>
+              <span></span>
+            </button>
           </div>
-          <div className='InspirationSectionCarrusel'>
+          <div
+            className='InspirationSectionCarrusel'
+            style={{ transform: translateCarrucel() }}>
             <div
-              className='carruselItem carrucelItemActive'
+              className={` carruselItem ${
+                carruselPosition == 1 && "carrucelItemActive"
+              }`}
               style={{ backgroundImage: `url(${carrusel1})` }}>
-              <div>
+              <div
+                className={`${
+                  carruselPosition == 1 && "carruselItemCardActive"
+                }`}>
                 <div>
                   <span>
                     01 <MinimizeIcon /> Bed Room
@@ -54,9 +94,14 @@ function InspirationSection() {
               </div>
             </div>
             <div
-              className='carruselItem  '
+              className={` carruselItem ${
+                carruselPosition == 2 && "carrucelItemActive"
+              }`}
               style={{ backgroundImage: `url(${carrusel2})` }}>
-              <div>
+              <div
+                className={`${
+                  carruselPosition == 2 && "carruselItemCardActive"
+                }`}>
                 <div>
                   <span>
                     01 <MinimizeIcon /> Bed Room
@@ -69,9 +114,14 @@ function InspirationSection() {
               </div>
             </div>
             <div
-              className='carruselItem'
+              className={` carruselItem ${
+                carruselPosition == 3 && "carrucelItemActive"
+              }`}
               style={{ backgroundImage: `url(${carrusel3})` }}>
-              <div>
+              <div
+                className={`${
+                  carruselPosition == 3 && "carruselItemCardActive"
+                }`}>
                 <div>
                   <span>
                     01 <MinimizeIcon /> Bed Room
@@ -84,9 +134,14 @@ function InspirationSection() {
               </div>
             </div>
             <div
-              className='carruselItem'
+              className={` carruselItem ${
+                carruselPosition == 4 && "carrucelItemActive"
+              }`}
               style={{ backgroundImage: `url(${carrusel4})` }}>
-              <div>
+              <div
+                className={`${
+                  carruselPosition == 4 && "carruselItemCardActive"
+                }`}>
                 <div>
                   <span>
                     01 <MinimizeIcon /> Bed Room

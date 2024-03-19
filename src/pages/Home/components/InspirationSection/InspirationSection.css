@@ -50,10 +50,10 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  margin-left: 40px;
+  margin-left: 60px;
   margin-bottom: 10px;
 }
-.carrucelPositionPoint > div {
+.carrucelPositionPoint > button {
   display: flex;
   width: 20px;
   height: 20px;
@@ -63,8 +63,9 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  background: none;
 }
-.carrucelPositionPoint > div > span {
+.carrucelPositionPoint > button > span {
   display: flex;
   background-color: #d8d8d8;
   width: 8px;
@@ -82,7 +83,8 @@
   gap: 20px;
   align-items: flex-start;
   width: 200%;
-  transform: translateX(0%);
+  transition: 0.3s;
+  height: 550px;
 }
 .carruselItem {
   position: relative;
@@ -93,6 +95,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: start;
+  transition: 0.3s;
 }
 .carrucelItemActive {
   height: 550px;
@@ -102,6 +105,11 @@
   display: flex;
   align-items: flex-end;
   margin: 20px;
+  transition: 0.3s;
+  opacity: 0;
+}
+.carruselItemCardActive {
+  opacity: 1 !important;
 }
 .carruselItem > div > div {
   background-color: #ffffff;
