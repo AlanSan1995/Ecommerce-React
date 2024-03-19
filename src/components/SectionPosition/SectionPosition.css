@@ -1,0 +1,18 @@
+.SectionPosition {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+.SectionPosition > h2 {
+  font-size: 48px;
+  font-weight: 500;
+}
+
+.SectionPosition > p > span {
+  font-size: 16px;
+  font-weight: 500;
+}

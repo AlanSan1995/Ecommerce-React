@@ -1,31 +1,25 @@
 import { useEffect, useState } from "react";
 import "./HomeProductsContainer.css";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../../../firebase/config";
 import ProducstList from "../../../../components/ProductsList/ProductsList";
+import { useProductsContext } from "../../../../context/ProductsContext";
+import { Link } from "react-router-dom";
 
 function HomeProductsContainer() {
-  const [products, setProducts] = useState([]);
-
-  const getProducts = async () => {
-    const reference = collection(db, "products");
-    const querySnapshot = await getDocs(reference);
-    const productsArray = [];
-    querySnapshot.forEach((doc) => {
-      productsArray.push({ id: doc.id, ...doc.data() });
-    });
-    setProducts(productsArray);
-  };
-
+  const { products, getProducts } = useProductsContext();
+  const [limit, setLimit] = useState(4);
   useEffect(() => {
-    getProducts();
-  }, []);
+    getProducts({ limite: limit });
+  }, [limit]);
 
   return (
     <div className='HomeProductsContainer'>
       <h1>Our Products</h1>
       <ProducstList products={products} />
-      <button>Show More</button>
+      {limit == 8 ? (
+        <Link to='/shop'>Go Shop</Link>
+      ) : (
+        <button onClick={() => setLimit(limit + 4)}>Show More</button>
+      )}
     </div>
   );
 }
