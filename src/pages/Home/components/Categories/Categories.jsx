@@ -11,19 +11,19 @@ function Categories() {
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       <div className='categoriesContainer'>
         <div>
-          <Link>
+          <Link to='/shop/dining'>
             <img src={categoriesImg1} alt='' />
           </Link>
           <span>Dining</span>
         </div>
         <div>
-          <Link>
+          <Link to='/shop/living'>
             <img src={categoriesImg2} alt='' />
           </Link>
           <span>Living</span>
         </div>
         <div>
-          <Link>
+          <Link to='/shop/bedroom'>
             <img src={categoriesImg3} alt='' />
           </Link>
           <span>Bedroom</span>

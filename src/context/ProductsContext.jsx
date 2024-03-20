@@ -1,4 +1,4 @@
-import { collection, getDocs, limit, query } from "firebase/firestore";
+import { collection, getDocs, limit, query, where } from "firebase/firestore";
 import { createContext, useContext, useState } from "react";
 import { db } from "../firebase/config";
 
@@ -11,11 +11,17 @@ function ProductsProvider({ children }) {
 
   const getProducts = async ({ limite = null, category = null }) => {
     let reference = "";
-    if (limit) {
+    if (limite) {
       reference = query(collection(db, "products"), limit(limite));
+    } else if (category) {
+      reference = query(
+        collection(db, "products"),
+        where("category", "==", category)
+      );
     } else {
       reference = collection(db, "products");
     }
+
     const querySnapshot = await getDocs(reference);
     const productsArray = [];
     querySnapshot.forEach((doc) => {
