@@ -11,12 +11,18 @@ function ProductsProvider({ children }) {
 
   const getProducts = async ({ limite = null, category = null }) => {
     let reference = "";
-    if (limite) {
+    if (limite && !category) {
       reference = query(collection(db, "products"), limit(limite));
-    } else if (category) {
+    } else if (category && !limite) {
       reference = query(
         collection(db, "products"),
         where("category", "==", category)
+      );
+    } else if (category && limite) {
+      reference = query(
+        collection(db, "products"),
+        where("category", "==", category),
+        limit(limite)
       );
     } else {
       reference = collection(db, "products");
